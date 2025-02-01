@@ -7,17 +7,15 @@
 	import Header from '$lib/ui/Header.svelte';
 	import Footer from '$lib/ui/Footer.svelte';
 	import Socials from '$lib/ui/Socials.svelte';
+	import Title from '$lib/ui/Title.svelte';
 
 	let { children } = $props();
 </script>
 
+<Title />
 <ParaglideJS {i18n} languageTag="de">
 	<Header />
 	{@render children()}
 	<Socials />
 	<Footer />
 </ParaglideJS>
-
-<head>
-	<title>Portfolio</title>
-</head>
