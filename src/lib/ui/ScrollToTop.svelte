@@ -31,10 +31,10 @@
 
 {#if showButton}
 	<button onclick={scrollToTop} class="scroll-to-top" aria-label="Scroll to top">
-		<svg width="19" height="10" viewBox="0 0 19 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<svg width="26" height="13" viewBox="0 0 26 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
-				d="M1 9L9.5 1L18 9"
-				stroke="currentColor"
+				d="M1.47461 11.7459L13 0.898438L24.5255 11.7459"
+				stroke="#EAAC9E"
 				stroke-linecap="round"
 				stroke-linejoin="round"
 			/>
@@ -47,8 +47,8 @@
 		position: fixed;
 		right: 20px;
 		bottom: 20px;
-		width: 40px;
-		height: 40px;
+		width: 80px;
+		height: 80px;
 		border-radius: 50%;
 		color: var(--primary-color);
 		background-color: var(--subtle-color);

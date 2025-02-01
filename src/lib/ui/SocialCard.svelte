@@ -1,5 +1,5 @@
 <script>
-	let { children, name, link, showArrow = false } = $props();
+	let { children, name, link, showArrow = false, arrowRight = false } = $props();
 </script>
 
 <a target="_blank" href={link}>
@@ -25,7 +25,7 @@
 
 	{#if showArrow}
 		<svg
-			class="arrow_mobile"
+			class={`arrow_mobile ${arrowRight ? 'arrow_mobile__right' : ''}`}
 			width="49"
 			height="12"
 			viewBox="0 0 49 12"
@@ -48,7 +48,7 @@
 	a {
 		border-radius: 10px;
 		border: 1px solid var(--border-color);
-		background: var(--background-color);
+		background-color: var(--background-color);
 		padding: 50px;
 		display: flex;
 		flex-direction: column;
@@ -56,6 +56,9 @@
 		height: 100%;
 		gap: 40px;
 		position: relative;
+		&:active {
+			background-color: var(--background-hover);
+		}
 		&:hover .arrow {
 			transform: translateY(-10px);
 			@media (max-width: 768px) {
@@ -67,12 +70,12 @@
 			transform: translateX(-10px);
 		}
 		@media (max-width: 768px) {
-			padding: 30px;
-			justify-content: center;
+			justify-content: flex-end;
 			align-items: center;
 			width: 100%;
 			height: fit-content;
 			gap: 25px;
+			padding: 50px 30px 40px 30px;
 		}
 	}
 	.arrow {
@@ -84,9 +87,19 @@
 	.arrow_mobile {
 		transition: 0.3s ease-in-out transform;
 		display: none;
+		transform: rotate(90deg);
+		height: 15px;
 
 		@media (max-width: 768px) {
 			display: block;
+			margin: 55px 0 5px 0;
+		}
+	}
+	.arrow_mobile__right {
+		height: auto;
+		transform: rotate(0);
+		@media (max-width: 768px) {
+			margin-top: 0;
 		}
 	}
 	.icon {
@@ -98,5 +111,11 @@
 		font-style: normal;
 		font-weight: 400;
 		line-height: 36px; /* 120% */
+		@media (max-width: 768px) {
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 28px; /* 116.667% */
+		}
 	}
 </style>

@@ -17,6 +17,12 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 30px 40px 30px 35px;
+		@media (max-width: 768px) {
+			flex-direction: column;
+			align-items: flex-start;
+			text-align: start;
+			gap: 24px;
+		}
 	}
 
 	.card_header__title {
@@ -33,5 +39,8 @@
 		font-weight: 400;
 		line-height: normal;
 		color: var(--secondary-color);
+		@media (max-width: 768px) {
+			text-align: start;
+		}
 	}
 </style>

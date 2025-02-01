@@ -3,7 +3,6 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import SocialCard from './SocialCard.svelte';
 	import { fly } from 'svelte/transition';
-	import { cubicOut } from 'svelte/easing';
 
 	let isMenuOpen = $state(false);
 
@@ -25,9 +24,9 @@
 	</button>
 
 	<nav class="desktop_nav">
-		<a href="#" on:click={() => (isMenuOpen = false)}>{m.header_1()}</a>
-		<a href="#" on:click={() => (isMenuOpen = false)}>{m.header_2()}</a>
-		<a href="#" on:click={() => (isMenuOpen = false)}>{m.header_3()}</a>
+		<a href="/about" on:click={() => (isMenuOpen = false)}>{m.header_1()}</a>
+		<a href="#work" on:click={() => (isMenuOpen = false)}>{m.header_2()}</a>
+		<a href="#socials" on:click={() => (isMenuOpen = false)}>{m.header_3()}</a>
 	</nav>
 </header>
 
@@ -44,12 +43,12 @@
 		out:fly={{ duration: 300, x: window.innerWidth, opacity: 1 }}
 	>
 		<nav class:active={isMenuOpen}>
-			<a href="#" on:click={() => (isMenuOpen = false)}>{m.header_1()}</a>
-			<a href="#" on:click={() => (isMenuOpen = false)}>{m.header_2()}</a>
-			<a href="#" on:click={() => (isMenuOpen = false)}>{m.header_3()}</a>
+			<a href="/about" on:click={() => toggleMenu()}>{m.header_1()}</a>
+			<a href="#work" on:click={() => toggleMenu()}>{m.header_2()}</a>
+			<a href="#socials" on:click={() => toggleMenu()}>{m.header_3()}</a>
 		</nav>
 		<div class="socials">
-			<SocialCard showArrow link={m.social_link_1()} name="">
+			<SocialCard showArrow arrowRight link={m.social_link_1()} name="">
 				<svg
 					width="50"
 					height="34"
@@ -119,7 +118,7 @@
 			position: relative;
 			z-index: 100;
 			gap: 50px;
-			padding-top: 160px;
+			padding-top: 15vh;
 		}
 	}
 	.logo {

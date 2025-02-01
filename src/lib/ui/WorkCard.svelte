@@ -1,8 +1,8 @@
 <script>
-	let { title, role, imgSrc, className, children } = $props();
+	let { title, role, imgSrc, className, children, mobImgSrc, mobileHeight = 510 } = $props();
 </script>
 
-<div class={`card ${className || ''}`}>
+<div class={`card ${className || ''}`} style="--mobile-height: {mobileHeight}px">
 	<div class="card_header">
 		<span class="card_header__title">{title}</span>
 		<span class="card_header__role">{role}</span>
@@ -12,12 +12,24 @@
 		{#if children}
 			{@render children()}
 		{:else}
-			<img src={imgSrc} alt="project" />
+			<img src={imgSrc} class="desktop" alt="project" />
+			<img src={mobImgSrc || imgSrc} class="mobile" alt="project" />
 		{/if}
 	</div>
 </div>
 
 <style lang="scss">
+	.desktop {
+		@media (max-width: 768px) {
+			display: none;
+		}
+	}
+	.mobile {
+		display: none;
+		@media (max-width: 768px) {
+			display: block;
+		}
+	}
 	.card {
 		border-radius: 10px;
 		border: 1px solid var(--border-color);
@@ -27,7 +39,7 @@
 		flex-direction: column;
 		height: 625px;
 		@media (max-width: 768px) {
-			height: 510px;
+			height: var(--mobile-height);
 		}
 	}
 	.card_header {
