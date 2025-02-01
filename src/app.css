@@ -1,3 +1,32 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+html,
+body {
+	background-color: var(--background-color);
+	min-height: 100vh;
+	font-family: 'Muller', sans-serif;
+}
+a {
+	color: var(--secondary-color);
+	transition: 0.3s ease-in-out color;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	transition: 0.3s ease-in-out all;
+}
+
+a:hover {
+	color: var(--primary-color);
+}
+a:hover svg svg {
+	transform: translate(3px, -3px);
+}
+.credo_subtitle__link {
+	color: var(--primary-color);
+}
+.credo_subtitle__link:hover {
+	color: var(--secondary-color);
+}
