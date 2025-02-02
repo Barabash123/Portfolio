@@ -14,7 +14,7 @@
 		justify-content: flex-start;
 		padding: 65px 70px;
 		@media (max-width: 768px) {
-			padding: 40px 30px;
+			padding: 60px 30px;
 		}
 	}
 	span {
@@ -24,5 +24,10 @@
 		font-style: normal;
 		font-weight: 300;
 		line-height: normal;
+		@media (max-width: 768px) {
+			text-align: center;
+			width: 100%;
+			font-size: 12px;
+		}
 	}
 </style>
