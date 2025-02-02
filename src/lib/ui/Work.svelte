@@ -46,9 +46,9 @@
 		};
 	});
 
-	$effect(async () => {
-		await getPosts();
-	});
+	// $effect(async () => {
+	// 	await getPosts();
+	// });
 
 	const projects = [
 		{
