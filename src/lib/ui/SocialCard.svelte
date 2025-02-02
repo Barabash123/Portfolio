@@ -1,8 +1,8 @@
 <script>
-	let { children, name, link, showArrow = false, arrowRight = false } = $props();
+	let { children, name, link, showArrow = false, arrowRight = false, className = '' } = $props();
 </script>
 
-<a target="_blank" href={link}>
+<a target="_blank" href={link} class={className}>
 	<div class="icon">
 		{#if children}
 			{@render children()}
@@ -65,10 +65,17 @@
 				transform: translateX(-10px) rotate(90deg);
 			}
 		}
+
 		&:hover .arrow_mobile,
-		&:active .arrow_mobile {
+		&:active .arrow_mobile .arrow_mobile {
+			transform: translateY(-10px) rotate(90deg);
+		}
+
+		&:hover .arrow_mobile__right,
+		&:active .arrow_mobile .arrow_mobile__right {
 			transform: translateX(-10px);
 		}
+
 		@media (max-width: 768px) {
 			justify-content: flex-end;
 			align-items: center;

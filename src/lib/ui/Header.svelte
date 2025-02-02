@@ -48,7 +48,7 @@
 			<a href="#socials" on:click={() => toggleMenu()}>{m.header_3()}</a>
 		</nav>
 		<div class="socials">
-			<SocialCard showArrow arrowRight link={m.social_link_1()} name="">
+			<SocialCard className="social_card" showArrow arrowRight link={m.social_link_1()} name="">
 				<svg
 					width="50"
 					height="34"
@@ -62,7 +62,7 @@
 					/>
 				</svg>
 			</SocialCard>
-			<SocialCard link={m.social_link_2()} name="">
+			<SocialCard className="social_card" link={m.social_link_2()} name="">
 				<svg
 					width="33"
 					height="33"
@@ -76,7 +76,7 @@
 					/>
 				</svg>
 			</SocialCard>
-			<SocialCard link={m.social_link_3()} name="">
+			<SocialCard className="social_card" link={m.social_link_3()} name="">
 				<svg
 					width="36"
 					height="24"
@@ -95,6 +95,9 @@
 {/if}
 
 <style lang="scss">
+	:global(.social_card) {
+		padding: 20px 30px !important;
+	}
 	header {
 		display: flex;
 		justify-content: space-between;

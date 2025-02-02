@@ -13,6 +13,9 @@
 		align-items: center;
 		justify-content: flex-start;
 		padding: 65px 70px;
+		@media (max-width: 768px) {
+			padding: 40px 30px;
+		}
 	}
 	span {
 		color: var(--secondary-color);
