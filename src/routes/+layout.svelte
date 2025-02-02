@@ -8,6 +8,7 @@
 	import Footer from '$lib/ui/Footer.svelte';
 	import Socials from '$lib/ui/Socials.svelte';
 	import Title from '$lib/ui/Title.svelte';
+	import ScrollToTop from '$lib/ui/ScrollToTop.svelte';
 
 	let { children } = $props();
 </script>
@@ -18,4 +19,5 @@
 	{@render children()}
 	<Socials />
 	<Footer />
+	<ScrollToTop />
 </ParaglideJS>

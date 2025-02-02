@@ -18,7 +18,6 @@
 
 	import { onMount } from 'svelte';
 	import CredoCard from '$lib/ui/CredoCard.svelte';
-	import ScrollToTop from '$lib/ui/ScrollToTop.svelte';
 	import SocialCard from '$lib/ui/SocialCard.svelte';
 	import Socials from '$lib/ui/Socials.svelte';
 	import Work from '$lib/ui/Work.svelte';
@@ -39,7 +38,6 @@
 
 <div class="page">
 	<!-- <div data-us-project="6H1ZUyUWM7L4dg7KFLYo" class="unicorn"></div> -->
-	<ScrollToTop />
 	<main>
 		<section class="hero">
 			<span class="hero_subtitle">{m.hero_subtitle()}</span>
