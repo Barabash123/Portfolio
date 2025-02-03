@@ -85,17 +85,33 @@
 	{#if Array.isArray(data.media) && data.media.length > 0}
 		<div class="media_item">
 			{#each data.media as media}
-				{#each media.desktopImage as desktopImage}
-					<img
-						class="media_item__desktop"
-						src={desktopImage.url?.url}
-						alt={desktopImage.url?.alt}
-					/>
-				{/each}
+				<div class="media_grid" style="--grid-columns: {media.desktopImage.length}">
+					{#each media.desktopImage as desktopImage, index}
+						<div
+							class="desktop_image"
+							class:align_right={index === 0 && media.desktopImage.length === 2}
+							class:align_left={index === 1 && media.desktopImage.length === 2}
+						>
+							<img
+								class="media_item__desktop"
+								src={desktopImage.url?.url}
+								alt={desktopImage.url?.alt}
+							/>
+						</div>
+					{/each}
+				</div>
 
-				{#each media.mobileImage as mobileImage}
-					<img class="media_item__mobile" src={mobileImage.url?.url} alt={mobileImage.url?.alt} />
-				{/each}
+				<div class="mobile_grid" style="--grid-columns: {media.mobileImage.length}">
+					{#each media.mobileImage as mobileImage}
+						<div class="mobile_image">
+							<img
+								class="media_item__mobile"
+								src={mobileImage.url?.url}
+								alt={mobileImage.url?.alt}
+							/>
+						</div>
+					{/each}
+				</div>
 			{/each}
 		</div>
 	{/if}
@@ -340,43 +356,73 @@
 			width: calc(100% - 50px);
 		}
 	}
+
 	.media_item {
 		margin: 50px 0;
+		width: 100%;
+	}
 
+	.media_grid {
 		@media (min-width: 769px) {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+			grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
 			gap: 16px;
-			width: 100%;
-			place-items: center;
+			margin-bottom: 16px;
 
-			.media_item__mobile {
-				display: none;
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
 
 		@media (max-width: 768px) {
-			display: flex;
-			flex-direction: column;
-			gap: 16px;
+			display: none;
+		}
+	}
 
-			.media_item__desktop {
-				display: none;
+	.mobile_grid {
+		display: none;
+
+		@media (max-width: 768px) {
+			display: grid;
+			grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
+			gap: 16px;
+			margin-bottom: 16px;
+
+			&:last-child {
+				margin-bottom: 0;
 			}
+		}
+	}
+
+	.desktop_image,
+	.mobile_image {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		&.align_right {
+			justify-content: flex-end;
+		}
+
+		&.align_left {
+			justify-content: flex-start;
 		}
 
 		img {
-			width: 100%;
-			max-height: 700px;
+			width: auto;
+			max-width: 90%;
+			max-height: 900px;
 			object-fit: contain;
 			border-radius: 8px;
 		}
 	}
+
 	.media_item__desktop {
 		@media (max-width: 768px) {
 			display: none;
 		}
 	}
+
 	.media_item__mobile {
 		display: none;
 		@media (max-width: 768px) {
