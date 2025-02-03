@@ -120,7 +120,7 @@
 	b {
 		font-size: 20px;
 		font-style: normal;
-		font-weight: 700;
+		font-weight: 600;
 		line-height: normal;
 		color: var(--primary-color);
 		display: block;
@@ -133,17 +133,17 @@
 		color: var(--secondary-color);
 		font-size: 16px;
 		font-style: normal;
-		font-weight: 400;
+		font-weight: 300;
 		line-height: 26px; /* 162.5% */
 		margin-bottom: 20px;
 		display: block;
-		max-width: 400px;
+		max-width: 340px;
 	}
 	span {
 		color: var(--secondary-color);
 		font-size: 15px;
 		font-style: normal;
-		font-weight: 500;
+		font-weight: 400;
 		line-height: 26px; /* 173.333% */
 		letter-spacing: 0.75px;
 		text-transform: uppercase;

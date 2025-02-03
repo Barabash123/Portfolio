@@ -65,7 +65,7 @@
 		text-align: right;
 		font-size: 16px;
 		font-style: normal;
-		font-weight: 400;
+		font-weight: 300;
 		line-height: normal;
 		color: var(--secondary-color);
 		@media (max-width: 768px) {

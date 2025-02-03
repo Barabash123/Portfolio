@@ -59,6 +59,10 @@
 		justify-content: center;
 		transition: all 0.3s ease;
 		z-index: 1000;
+		@media (max-width: 768px) {
+			width: 60px;
+			height: 60px;
+		}
 	}
 
 	.scroll-to-top:hover {

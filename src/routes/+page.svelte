@@ -7,6 +7,12 @@
 	import Logo from '$lib/assets/logo.svg';
 	import WorkCard from '$lib/ui/WorkCard.svelte';
 
+	import { onMount } from 'svelte';
+	import CredoCard from '$lib/ui/CredoCard.svelte';
+	import SocialCard from '$lib/ui/SocialCard.svelte';
+	import Socials from '$lib/ui/Socials.svelte';
+	import Work from '$lib/ui/Work.svelte';
+
 	/**
 	 * @param {import("$lib/paraglide/runtime").AvailableLanguageTag} newLanguage
 	 */
@@ -15,29 +21,9 @@
 		const localisedPath = i18n.resolveRoute(canonicalPath, newLanguage);
 		goto(localisedPath);
 	}
-
-	import { onMount } from 'svelte';
-	import CredoCard from '$lib/ui/CredoCard.svelte';
-	import SocialCard from '$lib/ui/SocialCard.svelte';
-	import Socials from '$lib/ui/Socials.svelte';
-	import Work from '$lib/ui/Work.svelte';
-
-	// $effect(() => {
-	// 	if (!window.UnicornStudio) {
-	// 		window.UnicornStudio = { isInitialized: !1 };
-	// 		var i = document.createElement('script');
-	// 		(i.src = 'https://cdn.unicorn.studio/v1.4.0/unicornStudio.umd.js'),
-	// 			(i.onload = function () {
-	// 				window.UnicornStudio.isInitialized ||
-	// 					(UnicornStudio.init(), (window.UnicornStudio.isInitialized = !0));
-	// 			}),
-	// 			(document.head || document.body).appendChild(i);
-	// 	}
-	// });
 </script>
 
 <div class="page">
-	<!-- <div data-us-project="6H1ZUyUWM7L4dg7KFLYo" class="unicorn"></div> -->
 	<main>
 		<section class="hero">
 			<span class="hero_subtitle">{m.hero_subtitle()}</span>
@@ -115,7 +101,7 @@
 		color: var(--primary-color);
 		font-size: 20px;
 		font-style: normal;
-		font-weight: 700;
+		font-weight: 600;
 		line-height: normal;
 	}
 	.hero_title {
@@ -123,12 +109,12 @@
 		color: var(--secondary-color);
 		font-size: 65px;
 		font-style: normal;
-		font-weight: 700;
+		font-weight: 600;
 		line-height: 80px; /* 114.286% */
 		@media (max-width: 768px) {
 			font-size: 37px;
 			font-style: normal;
-			font-weight: 700;
+			font-weight: 600;
 			line-height: 43px; /* 116.216% */
 		}
 	}
@@ -176,7 +162,7 @@
 		color: var(--primary-color);
 		font-size: 70px;
 		font-style: normal;
-		font-weight: 700;
+		font-weight: 600;
 		line-height: 80px; /* 114.286% */
 		max-width: 80%;
 		@media (max-width: 768px) {

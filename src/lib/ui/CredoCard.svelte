@@ -1,5 +1,13 @@
 <script>
-	let { title, subtitle, className = '', withArrow = false, onClick, type = 1 } = $props();
+	let {
+		title,
+		subtitle,
+		className = '',
+		withArrow = false,
+		onClick,
+		type = 1,
+		onClickToLeft
+	} = $props();
 
 	let isClickable = !!onClick;
 </script>
@@ -8,7 +16,13 @@
 	onclick={onClick}
 	class={`card ${className || ''} ${isClickable ? 'cursor-pointer' : 'cursor-default'} ${type === 2 ? 'card_type_2' : ''}`}
 >
-	<span class="card_header__title">{title}</span>
+	<span
+		onclick={(e) => {
+			e.stopPropagation();
+			onClickToLeft?.();
+		}}
+		class="card_header__title">{title}</span
+	>
 	<span class="card_header__role">
 		{subtitle}
 		{#if withArrow}

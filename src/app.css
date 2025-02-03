@@ -25,7 +25,17 @@ a:hover svg svg {
 	transform: translate(3px, -3px);
 }
 .credo_subtitle__link {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 26px;
 	color: var(--primary-color);
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-skip-ink: auto;
+	text-decoration-thickness: auto;
+	text-underline-offset: auto;
+	text-underline-position: from-font;
 }
 .credo_subtitle__link:hover {
 	color: var(--secondary-color);

@@ -103,6 +103,7 @@
 			<CredoCard
 				type={2}
 				withArrow
+				onClickToLeft={() => goto('/#work')}
 				onClick={handleGoToNextProject}
 				title={m.projects_credo_1()}
 				subtitle={m.projects_credo_2()}
@@ -122,7 +123,7 @@
 		color: var(--secondary-color);
 		font-size: 70px;
 		font-style: normal;
-		font-weight: 700;
+		font-weight: 600;
 		line-height: 80px; /* 114.286% */
 		padding-left: 170px;
 		margin-bottom: 130px;
@@ -131,7 +132,7 @@
 			margin-bottom: 12px;
 			font-size: 37px;
 			font-style: normal;
-			font-weight: 700;
+			font-weight: 600;
 			line-height: 43px; /* 116.216% */
 			max-width: 60%;
 		}

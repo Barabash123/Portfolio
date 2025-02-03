@@ -1,14 +1,21 @@
 <script>
+	// @ts-nocheck
 	import Logo from '../assets/logo.svg';
 	import * as m from '$lib/paraglide/messages.js';
 	import SocialCard from './SocialCard.svelte';
 	import { fly } from 'svelte/transition';
+	import { page } from '$app/state';
 
 	let isMenuOpen = $state(false);
 
 	function toggleMenu() {
 		isMenuOpen = !isMenuOpen;
 		document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+	}
+
+	function isActive(path) {
+		const currentPath = page.url.pathname;
+		return Boolean(String(currentPath) === path);
 	}
 </script>
 
@@ -24,9 +31,15 @@
 	</button>
 
 	<nav class="desktop_nav">
-		<a href="/about" on:click={() => (isMenuOpen = false)}>{m.header_1()}</a>
-		<a href="#work" on:click={() => (isMenuOpen = false)}>{m.header_2()}</a>
-		<a href="#socials" on:click={() => (isMenuOpen = false)}>{m.header_3()}</a>
+		<a class:active={isActive('/about')} href="/about" on:click={() => (isMenuOpen = false)}>
+			{m.header_1()}
+		</a>
+		<a class:active={isActive('/#work')} href="/#work" on:click={() => (isMenuOpen = false)}>
+			{m.header_2()}
+		</a>
+		<a class:active={isActive('#socials')} href="#socials" on:click={() => (isMenuOpen = false)}>
+			{m.header_3()}
+		</a>
 	</nav>
 </header>
 
@@ -43,9 +56,15 @@
 		out:fly={{ duration: 300, x: window.innerWidth, opacity: 1 }}
 	>
 		<nav class:active={isMenuOpen}>
-			<a href="/about" on:click={() => toggleMenu()}>{m.header_1()}</a>
-			<a href="#work" on:click={() => toggleMenu()}>{m.header_2()}</a>
-			<a href="#socials" on:click={() => toggleMenu()}>{m.header_3()}</a>
+			<a class:active={isActive('/about')} href="/about" on:click={toggleMenu}>
+				{m.header_1()}
+			</a>
+			<a class:active={isActive('/#work')} href="/#work" on:click={toggleMenu}>
+				{m.header_2()}
+			</a>
+			<a class:active={isActive('#socials')} href="#socials" on:click={toggleMenu}>
+				{m.header_3()}
+			</a>
 		</nav>
 		<div class="socials">
 			<SocialCard className="social_card" showArrow arrowRight link={m.social_link_1()} name="">
