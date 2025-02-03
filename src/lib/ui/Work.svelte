@@ -55,7 +55,7 @@
 			titleLeft: m.work_2_1(),
 			titleRight: m.work_2_2(),
 			imgSrc: '/images/work_1.jpg',
-			mobileImgSrc: '/images/work1_2.jpg'
+			mobileImgSrc: '/images/work1_2.png'
 		},
 		{
 			titleLeft: m.work_3_1(),
@@ -121,34 +121,13 @@
 				role={project.titleRight}
 			/>
 		{/each}
-		<!-- <WorkCard
-			imgSrc="/images/work_1.jpg"
-			mobImgSrc="/images/work1_2.jpg"
-			title={m.work_2_1()}
-			role={m.work_2_2()}
-		/>
-		<WorkCard
-			imgSrc="/images/work_2.jpg"
-			mobImgSrc="/images/work2_2.png"
-			title={m.work_3_1()}
-			role={m.work_3_2()}
-		/>
-		<WorkCard
-			imgSrc="/images/work_3.png"
-			mobImgSrc="/images/work3_2.png"
-			title={m.work_4_1()}
-			role={m.work_4_2()}
-		/>
-		<WorkCard imgSrc="/images/work_4.png" title={m.work_5_1()} role={m.work_5_2()} />
-		<WorkCard
-			imgSrc="/images/work_5.jpg"
-			mobImgSrc="/images/work5_2.png"
-			title={m.work_6_1()}
-			role={m.work_6_2()}
-		/> -->
 
 		<WorkCard mobileHeight={380} title={m.work_7_1()} role={m.work_7_2()}>
-			<a href="#" class="flex h-full w-full items-center justify-center gap-2 uppercase">
+			<a
+				href={m.social_link_1()}
+				target="_blank"
+				class="behance_link flex h-full w-full items-center justify-center gap-2 bg-[#272525] uppercase"
+			>
 				{m.work_7_3()}
 				<svg
 					width="11"
@@ -168,6 +147,10 @@
 </section>
 
 <style lang="scss">
+	.behance_link {
+		border-radius: 7px;
+		border: 1px solid var(--border-color);
+	}
 	.work {
 		padding: 50px 70px 130px 70px;
 		border-bottom: 1px solid var(--border-color);
@@ -230,6 +213,10 @@
 		border-radius: 10px;
 		border: 1px solid var(--border-color);
 		background: var(--background-color);
+		@media (max-width: 768px) {
+			width: 340px;
+			margin: 0 auto 30px auto;
+		}
 	}
 	.work_honey__left {
 		color: var(--secondary-color);
@@ -308,10 +295,13 @@
 	}
 	.work_grid {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(auto-fill, 670px);
 		gap: 30px;
-		@media (max-width: 768px) {
-			grid-template-columns: 1fr;
+		width: 100%;
+		justify-content: center;
+
+		@media (max-width: 900px) {
+			grid-template-columns: repeat(auto-fill, 340px);
 		}
 	}
 </style>

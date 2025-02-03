@@ -26,6 +26,8 @@
 	}
 	.mobile {
 		display: none;
+		object-fit: contain;
+
 		@media (max-width: 768px) {
 			display: block;
 		}
@@ -87,7 +89,6 @@
 		line-height: normal;
 		letter-spacing: 0.7px;
 		text-transform: uppercase;
-		border-radius: 10px 10px 9px 9px;
 	}
 	.card_image img {
 		transition: 0.3s ease-in-out transform;
@@ -96,6 +97,7 @@
 		top: 50%;
 		height: 100%;
 		width: 100%;
+		border-radius: 10px 10px 9px 9px;
 		transform: translate(-50%, -50%);
 		&:hover {
 			transform: translate(-50%, -50%) scale(1.05);
