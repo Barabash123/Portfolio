@@ -15,6 +15,12 @@
 
 	function isActive(path) {
 		const currentPath = page.url.pathname;
+		if (path === '/#work') {
+			return page.url.href.endsWith('/#work');
+		}
+		if (path === '#socials') {
+			return page.url.href.endsWith('#socials');
+		}
 		return Boolean(String(currentPath) === path);
 	}
 </script>
@@ -154,11 +160,25 @@
 		font-weight: 500;
 		line-height: normal;
 		transition: 0.3s ease-in-out all;
+		text-align: center;
+		font-family: Muller;
+
 		&:hover {
 			color: var(--primary-color);
 			svg {
 				transform: translate(3px, -3px);
 			}
+		}
+
+		&.active {
+			color: var(--primary-color);
+			font-weight: 700;
+			text-decoration-line: underline;
+			text-decoration-style: solid;
+			text-decoration-skip-ink: none;
+			text-decoration-thickness: auto;
+			text-underline-offset: auto;
+			text-underline-position: from-font;
 		}
 	}
 	.hamburger {

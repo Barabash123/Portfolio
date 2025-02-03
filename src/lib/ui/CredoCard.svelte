@@ -58,6 +58,7 @@
 			align-items: flex-start;
 			text-align: start;
 			gap: 24px;
+			padding: 22px 20px;
 		}
 		&:hover {
 			.card_header__role svg {

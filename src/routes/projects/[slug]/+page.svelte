@@ -80,36 +80,36 @@
 				{/each}
 			</div>
 		</div>
-
-		{#if Array.isArray(data.media) && data.media.length > 0}
-			<div class="media_item">
-				{#each data.media as media}
-					{#each media.desktopImage as desktopImage}
-						<img
-							class="media_item__desktop"
-							src={desktopImage.url?.url}
-							alt={desktopImage.url?.alt}
-						/>
-					{/each}
-
-					{#each media.mobileImage as mobileImage}
-						<img class="media_item__mobile" src={mobileImage.url?.url} alt={mobileImage.url?.alt} />
-					{/each}
-				{/each}
-			</div>
-		{/if}
-
-		<div class="credo_card">
-			<CredoCard
-				type={2}
-				withArrow
-				onClickToLeft={() => goto('/#work')}
-				onClick={handleGoToNextProject}
-				title={m.projects_credo_1()}
-				subtitle={m.projects_credo_2()}
-			/>
-		</div>
 	</main>
+
+	{#if Array.isArray(data.media) && data.media.length > 0}
+		<div class="media_item">
+			{#each data.media as media}
+				{#each media.desktopImage as desktopImage}
+					<img
+						class="media_item__desktop"
+						src={desktopImage.url?.url}
+						alt={desktopImage.url?.alt}
+					/>
+				{/each}
+
+				{#each media.mobileImage as mobileImage}
+					<img class="media_item__mobile" src={mobileImage.url?.url} alt={mobileImage.url?.alt} />
+				{/each}
+			{/each}
+		</div>
+	{/if}
+
+	<div class="credo_card">
+		<CredoCard
+			type={2}
+			withArrow
+			onClickToLeft={() => goto('/#work')}
+			onClick={handleGoToNextProject}
+			title={m.projects_credo_1()}
+			subtitle={m.projects_credo_2()}
+		/>
+	</div>
 {/if}
 
 <style lang="scss">
@@ -334,22 +334,40 @@
 		}
 	}
 	.credo_card {
-		margin: 70px 0 160px 0;
-		width: 100%;
+		margin: 70px auto 160px auto;
+		width: calc(100% - 140px);
 		@media (max-width: 768px) {
-			margin: 70px auto 160px auto;
 			width: calc(100% - 50px);
 		}
 	}
 	.media_item {
-		display: flex;
-		align-items: flex-start;
-		justify-content: center;
-		gap: 16px;
-		width: 100%;
 		margin: 50px 0;
+
+		@media (min-width: 769px) {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+			gap: 16px;
+			width: 100%;
+			place-items: center;
+
+			.media_item__mobile {
+				display: none;
+			}
+		}
+
+		@media (max-width: 768px) {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+
+			.media_item__desktop {
+				display: none;
+			}
+		}
+
 		img {
 			width: 100%;
+			max-height: 700px;
 			object-fit: contain;
 			border-radius: 8px;
 		}

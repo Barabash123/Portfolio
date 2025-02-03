@@ -246,7 +246,7 @@
 		text-align: right;
 		font-size: 16px;
 		font-style: normal;
-		font-weight: 300;
+		font-weight: 400;
 		line-height: normal;
 		@media (max-width: 768px) {
 			display: none;
@@ -259,7 +259,7 @@
 		align-items: center;
 		justify-content: center;
 		@media (max-width: 768px) {
-			height: 510px;
+			height: 442px;
 		}
 	}
 	.work_honey__main_left {

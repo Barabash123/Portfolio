@@ -97,24 +97,24 @@
 		}
 	}
 	.hero_subtitle {
-		@include subtitle();
 		color: var(--primary-color);
 		font-size: 20px;
 		font-style: normal;
-		font-weight: 600;
+		font-weight: 700;
 		line-height: normal;
+		@media (max-width: 768px) {
+			font-size: 16px;
+		}
 	}
 	.hero_title {
-		@include h1();
 		color: var(--secondary-color);
 		font-size: 65px;
 		font-style: normal;
-		font-weight: 600;
+		font-weight: 700;
 		line-height: 80px; /* 114.286% */
 		@media (max-width: 768px) {
-			font-size: 37px;
+			font-size: 35px;
 			font-style: normal;
-			font-weight: 600;
 			line-height: 43px; /* 116.216% */
 		}
 	}

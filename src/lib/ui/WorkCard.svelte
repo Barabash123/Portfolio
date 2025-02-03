@@ -1,5 +1,5 @@
 <script>
-	let { title, role, imgSrc, className, children, mobImgSrc, mobileHeight = 510 } = $props();
+	let { title, role, imgSrc, className, children, mobImgSrc, mobileHeight = 507 } = $props();
 </script>
 
 <div class={`card ${className || ''}`} style="--mobile-height: {mobileHeight}px">
